@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Me - NIRANJANA A</title>
+<link href="https://fonts.googleapis.com/css2?family=Teachers:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* General styles */
+  body {
+    font-family: 'Teachers', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden; 
+  }
+
+  .header {
+    text-align: center;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+
+  .header img {
+    width: 130px;
+    height: 130px;
+    border-radius: 0%;
+    cursor: pointer;
+    transition: transform 0.3s, filter 0.3s;
+  }
+
+  .header img:hover {
+    transform: scale(1.1);
+  }
+
+  .header img.enlarged {
+    filter: hue-rotate(270deg);
+  }
+
+  .section {
+    width: 80%;
+    max-width: 800px;
+    border: 2px solid rgb(148, 92, 176);
+    padding: 20px;
+    margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+
+  .section h2 {
+    margin: 0 0 10px 0;
+    color: white;
+  }
+
+  .section p {
+    margin: 0;
+  }
+
+  .section a {
+    color: rgb(68, 40, 82);
+  }
+
+  /* Small screen styles */
+  @media only screen and (max-width: 600px) {
+    .section {
+      width: 95%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .header img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .section h2 {
+      font-size: 1.2em;
+    }
+
+    .section p {
+      font-size: 1em;
+    }
+
+    .section ul {
+      padding-left: 20px;
+    }
+
+    .section ul li {
+      font-size: 1em;
+    }
+  }
+</style>
+<script>
+  function handleNavigation(event) {
+    event.preventDefault();
+    document.body.style.opacity = 0;
+    document.body.style.transform = 'translateY(100%)';
+    setTimeout(() => {
+      window.location.href = event.target.href;
+    }, 500);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('.btn, .header a');
+    links.forEach(link => {
+      link.addEventListener('click', handleNavigation);
+    });
+
+    // Transition into view when the page loads
+    setTimeout(() => {
+      document.body.style.opacity = 1;
+      document.body.style.transform = 'translateY(0)';
+    }, 0);
+
+    // Sequential fade-in for sections
+    const sections = document.querySelectorAll('.header, .section');
+    sections.forEach((section, index) => {
+      setTimeout(() => {
+        section.style.opacity = 1;
+        section.style.transform = 'translateY(0)';
+      }, index * 300); // Delay each section
+    });
+  });
+</script>
+</head>
+<body>
+  <div class="header" id="header">
+    <a href="index.html"><img src="ss/r2.png" alt="Home" id="whale"></a>
+  </div>  
+  <div class="section">
+    <h2>Profile</h2>
+    <p>Hi, I'm Niranjana A, a passionate data enthusiast with a Master's degree in Data Science. I have a knack for transforming raw information into actionable insights that drive business growth and innovation. With a keen interest in machine learning and natural language processing, I'm constantly exploring new ways to leverage data for impactful decision-making. My goal is to contribute to the ever-evolving field of data science and make a meaningful difference in the world of technology.</p>
+  </div>
+
+  <div class="section">
+    <h2>Education</h2>
+    <p><strong>Master's in Data Science</strong></p>
+    <p>St.Joseph's College (Autonomous), Trichy</p>
+    <p><strong>Bachelor's in Physics</strong></p>
+    <p>Auxilium College of Arts and Science for Women, Regunathapuram</p>
+  </div>
+
+  <div class="section">
+    <h2>Experience</h2>
+    <p><strong>Data Science Internship</strong></p>
+    <p>St.Joseph's College (Autonomous), Trichy</p>
+    <p>January 2024 - March 2024</p>
+
+    <p><strong>Data Science Internship</strong></p>
+    <p>Menmozhi Technologies, Trichy</p>
+    <p>May 2023 - June 2023</p>
+  </div>
+
+  <div class="section">
+    <h2>Area of Interest</h2>
+    <ul>
+      <li>Machine Learning</li>
+      <li>NLP</li>
+      <li>AI</li>
+      <li>UI/UX Designing</li>
+    </ul>
+  </div>
+
+  <div class="section contact-info">
+    <h2>Contact Information</h2>
+    <p>Email: i@gmail.com</p>
+    <p>Phone: 5</p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/niranjanaa77" target="_blank">LinkedIn Profile</a></p>
+    <p>GitHub: <a href="https://github.com/NiranjanaA7" target="_blank">GitHub Profile</a></p>
+  </div>
+  <script>
+    const whaleImage = document.getElementById('whale');
+    let isEnlarged = false;
+
+    whaleImage.addEventListener('click', function() {
+      isEnlarged = !isEnlarged;
+      if (isEnlarged) {
+        whaleImage.classList.add('enlarged');
+      } else {
+        whaleImage.classList.remove('enlarged');
+      }
+    });
+  </script>
+  <body>
+    <!-- Scroll up arrow icon -->
+    <div class="scroll-up-arrow" onclick="scrollToTop()">^</div>
+
+    </div>
+
+    <!-- Script to scroll to the top of the page when arrow is clicked -->
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
