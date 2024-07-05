@@ -27,33 +27,30 @@
             padding: 0 20px; 
         }
 
+        .image-container {
+            margin-bottom: 20px; /* Add some space below the image */
+        }
+
         .image-container img {
-            width: 150px; 
+            width: 100px; /* Reduced size */
             height: auto;
             animation: float 3s ease-in-out infinite; 
-            cursor: pointer;
-            transition: transform 0.5s; 
         }
-        
 
         @keyframes float {
             0% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-10px); } /* Smaller float distance */
             100% { transform: translateY(0); }
-        }
-
-        .image-container img.enlarged {
-            transform: scale(1.5); /* Enlarge when clicked */
         }
 
         h1 {
             font-family: 'Teachers', Arial, sans-serif;
-            font-size: 3em; /* Reduced font size */
+            font-size: 2.5em; /* Adjusted font size */
             margin: 20px 0;
         }
 
         p {
-            font-size: 1em; /* Reduced font size */
+            font-size: 1em; /* Adjusted font size */
             line-height: 1.5;
             margin: 20px 0;
         }
@@ -88,7 +85,7 @@
             border: 2px solid rgb(145, 129, 204);
             text-decoration: none;
             color: white;
-            font-size: 1em; /* Reduced font size */
+            font-size: 1em; /* Adjusted font size */
             transition: background-color 0.3s, color 0.3s;
         }
 
@@ -160,15 +157,15 @@
         <p>DATA SCIENCE ASPIRANT, ASPIRING DATA ANALYST.</p>
         
         <div class="social">
-            <a href="https://www.linkedin.com/in/niranjanaa77"><img src="ss/linkedin.jpg" alt="Image 1"></a>
-            <a href="https://github.com/NiranjanaA7"><img src="ss/github icon.jpg" alt="Image 2"></a>
-            <a href="mailto:niranjanaasaithambi@gmail.com"><img src="ss/messages icon.jpg" alt="Image 3"></a>
+            <a href="https://www.linkedin.com/in/niranjanaa77"><img src="ss/linkedin.jpg" alt="LinkedIn"></a>
+            <a href="https://github.com/NiranjanaA7"><img src="ss/github icon.jpg" alt="GitHub"></a>
+            <a href="mailto:niranjanaasaithambi@gmail.com"><img src="ss/messages icon.jpg" alt="Email"></a>
         </div>
         
         <div class="buttons">
             <a href="projects.html" class="btn">PROJECT</a>
             <a href="about.html" class="btn">ABOUT</a>
         </div>
-    
+    </div>
 </body>
 </html>
