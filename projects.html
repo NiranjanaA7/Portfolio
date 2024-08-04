@@ -1,262 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - NIRANJANA A</title>
-    <link href="https://fonts.googleapis.com/css2?family=Teachers:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* General styles */
-        body {
-            font-family: 'Teachers', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: black;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects - NIRANJANA A</title>
+<link href="https://fonts.googleapis.com/css2?family=Teachers:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* General styles */
+  body {
+    font-family: 'Teachers', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh; /* Minimum height of the viewport */
+    overflow: auto; /* Enable scrolling for the entire page */
+  }
 
-        .header, .categories, .projects {
-            opacity: 0; /* Initially hidden for transition effect */
-            transform: translateY(100px); /* Start position for upward transition */
-            transition: opacity 1s ease-out, transform 1s ease-out; /* Transition properties */
-        }
+  .frame {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    border: 2px solid rgb(145, 129, 204);
+    border-radius: 10px;
+    margin-top: 20px;
+  }
 
-        .header.visible, .categories.visible, .projects.visible {
-            opacity: 1; /* Fully visible */
-            transform: translateY(0); /* End position */
-        }
+  .header {
+    text-align: center;
+    margin-top: 20px;
+  }
 
-        .header {
-            text-align: center;
-            margin-top: 20px;
-        }
+  .header img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s, filter 0.3s; /* Smooth transition for the enlargement effect and filter change */
+  }
 
-        .header img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: transform 1s, filter 1s;
-        }
+  .header img:hover {
+    transform: scale(1.1); /* Enlarge the image on hover */
+  }
 
-        .header img:hover {
-            transform: scale(1.1);
-        }
+  .header img.enlarged {
+    filter: hue-rotate(270deg); /* Change the color to purple when enlarged */
+  }
 
-        .header img.enlarged {
-            filter: hue-rotate(270deg);
-        }
+  .project-details {
+    text-align: left;
+    margin-top: 20px;
+    padding-right: 20px; /* Add some padding to prevent content from touching the frame edges */
+  }
+  .project-details a {
+    color: rgb(68, 40, 82);
+  }
 
-        .categories {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
+  .project-details h2 {
+    margin: 0 0 10px 0;
+    color: white;
+  }
 
-        .category {
-            text-decoration: none;
-            color: white;
-            font-size: 1.2em;
-            padding: 10px 20px;
-            border: 2px solid rgb(145, 129, 204);
-            transition: background-color 0.7s, color 0.7s;
-            cursor: pointer;
-        }
+  .project-details p {
+    margin: 0;
+  }
 
-        .category.active, .category:hover {
-            background-color: rgb(68, 40, 82);
-            color: white;
-        }
+  .project-details img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
 
-        .projects {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            width: 80%;
-            max-width: 800px;
-            margin-bottom: 40px;
-        }
+  /* Center the second image */
+  .centered-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+  }
 
-        .project {
-            border: 2px solid rgb(145, 129, 204);
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: transform 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            width: 100%;
-        }
+  /* Scroll-up arrow styles */
+  .scroll-up-arrow {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(68, 40, 82);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Ensure it's on top of other content */
+  }
 
-        .project:hover {
-            transform: scale(1.05);
-        }
+  .scroll-up-arrow:hover {
+    background: rgb(85, 51, 103);
+  }
 
-        .project img {
-            width: 150px;
-            height: auto;
-        }
+  /* Small screen styles */
+  @media only screen and (max-width: 600px) {
+    .frame {
+      width: 95%;
+      padding: 10px;
+      margin-top: 10px;
+    }
 
-        .project-details {
-            text-align: left;
-            flex-grow: 1;
-            margin-left: 20px;
-        }
+    .header img {
+      width: 100px;
+      height: 100px;
+    }
 
-        .project-details h2 {
-            margin: 0 0 10px 0;
-            color: white;
-        }
+    .project-details {
+      padding-right: 10px;
+    }
 
-        .project-details p {
-            margin: 0;
-        }
+    .project-details h2 {
+      font-size: 1.2em;
+    }
 
-        .hidden {
-            display: none;
-        }
+    .project-details p {
+      font-size: 1em;
+    }
 
-        /* Small screen styles */
-        @media only screen and (max-width: 600px) {
-            .categories {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+    .project-details img {
+      margin-bottom: 10px;
+    }
 
-            .category {
-                font-size: 1em;
-                padding: 8px 16px;
-            }
+    .scroll-up-arrow {
+      bottom: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 16px;
+    }
+  }
 
-            .projects {
-                width: 90%;
-                align-items: center;
-            }
-
-            .project {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .project img {
-                width: 120px;
-                margin-bottom: 10px;
-            }
-
-            .project-details {
-                margin-left: 0;
-            }
-
-            .project-details h2 {
-                font-size: 1em;
-            }
-
-            .project-details p {
-                font-size: 0.9em;
-            }
-        }
-    </style>
+</style>
 </head>
 <body>
-    <div class="header" id="header">
-        <a href="index.html"><img src="ss/r2.png" alt="Home" id="whale"></a>
+  <div class="header">
+    <a href="index.html"><img src="ss/r2.png" alt="Home" id="whale"></a>
+  </div>
+  <div class="frame">
+    <div class="project-details">
+        <h2>Coffee Sales Analysis and Visualization Dashboard Using Excel</h2>
+        <img src="ss/vs1.png" alt="Coffee Sales Analysis and Visualization Dashboard Using Excel">
+        <p><strong>Objective:</strong> To analyze large datasets and derive actionable insights using Excel, with a focus on creating a dynamic dashboard to visualize key metrics and trends.</p>
+
+        <p><strong>Key Components:</strong></p>
+        <ol>
+            <li><strong>Data Cleaning:</strong> Organized and cleaned large datasets using Excel functions and tools.</li>
+            <li><strong>Data Analysis:</strong> Utilized Excel functions such as <code>XLOOKUP</code>, <code>INDEX-MATCH</code>, and PivotTables to analyze data efficiently.</li>
+            <li><strong>Dynamic Dashboard:</strong> Created an interactive dashboard using Excel's chart and graph features.</li>
+            <li><strong>Interactivity:</strong> Added slicers and pivot charts to allow users to filter and drill down into specific data points dynamically.</li>
+            <li><strong>Automation:</strong> Implemented Excel macros to automate data updates and dashboard refreshes.</li>
+        </ol>
+
+        <p><strong>Results:</strong> Developed a comprehensive dynamic dashboard that visualizes key metrics and trends in real-time. Enhanced decision-making capabilities by providing clear and interactive visual reports.</p>
+        
+        <p><strong>Impact:</strong> Provided stakeholders with a powerful tool to monitor and analyze data effectively. Demonstrated proficiency in Excel and the ability to create dynamic and interactive visualizations.</p>
+
+        <p><strong>Future Enhancements:</strong> Explore integration with other data sources for more comprehensive analysis. Implement more advanced data visualization techniques and tools. Enhance the dashboard's design for improved user experience.</p>
     </div>
-    <div class="categories" id="categories">
-        <div class="category" onclick="filterProjects('all', this)">Show All</div>
-        <div class="category" onclick="filterProjects('artificial-intelligence', this)">Artificial Intelligence</div>
-        <div class="category" onclick="filterProjects('data-science', this)">Machine Learning / Deep Learning </div>
-        <div class="category" onclick="filterProjects('data-visualization', this)">Data Visualization</div>
-    </div>
-    <div class="projects" id="projects">
-        <a href="project1.html" class="project" data-category="artificial-intelligence data-science">
-            <img src="ss/mlt1.png" alt="Project 1">
-            <div class="project-details">
-                <h2>Multilingual Translation System Using Deep Learning</h2>
-                <p>Develop a language translation application to translate English text into French, Tamil, and Spanish, providing a user-friendly interface for seamless communication across different languages.</p>
-            </div>
-        </a>
-        <a href="project2.html" class="project" data-category="artificial-intelligence ">
-            <img src="ss/va1.png" alt="Project 2">
-            <div class="project-details">
-                <h2>Voice Assistant Using Python</h2>
-                <p>Create a rule-based voice assistant using Python that can perform tasks such as searching the web, sending emails, and setting reminders through voice commands.</p>
-            </div>
-        </a>
-        <a href="project3.html" class="project" data-category="data-visualization">
-            <img src="ss/vs1.png" alt="Project 3">
-            <div class="project-details">
-                <h2>Coffee Sales Analysis and Visualization Dashboard Using Excel</h2>
-                <p>Analyze coffee sales data and create a visualization dashboard using Excel to provide insights into sales performance, trends, and customer preferences.</p>
-            </div>
-        </a>
-    </div>
-    <script>
-        function filterProjects(category, element) {
-            const projects = document.querySelectorAll('.project');
-            projects.forEach(function(project) {
-                if (category === 'all') {
-                    project.classList.remove('hidden');
-                } else {
-                    const categories = project.getAttribute('data-category').split(' ');
-                    if (categories.includes(category)) {
-                        project.classList.remove('hidden');
-                    } else {
-                        project.classList.add('hidden');
-                    }
-                }
-            });
+  </div>
+  
+  <script>
+    const whaleImage = document.getElementById('whale');
+    let isEnlarged = false;
 
-            // Update active category
-            const categories = document.querySelectorAll('.category');
-            categories.forEach(function(cat) {
-                cat.classList.remove('active');
-            });
-            element.classList.add('active');
-        }
+    whaleImage.addEventListener('click', function() {
+      isEnlarged = !isEnlarged;
+      if (isEnlarged) {
+        whaleImage.classList.add('enlarged');
+      } else {
+        whaleImage.classList.remove('enlarged');
+      }
+    });
+    
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 
-        // Show all projects by default
-        filterProjects('all', document.querySelector('.category'));
+  <!-- Scroll up arrow icon -->
+  <div class="scroll-up-arrow" onclick="scrollToTop()">^</div>
 
-        // Add upward transition effect for projects, header, and categories
-        window.addEventListener('load', function() {
-            const projectsContainer = document.getElementById('projects');
-            const header = document.getElementById('header');
-            const categories = document.getElementById('categories');
-            
-            setTimeout(function() {
-                header.classList.add('visible');
-            }, 100); // Add a slight delay to ensure the transition effect is noticeable
-
-            setTimeout(function() {
-                categories.classList.add('visible');
-            }, 300); // Add a slight delay to ensure the transition effect is noticeable
-
-            setTimeout(function() {
-                projectsContainer.classList.add('visible');
-            }, 500); // Add a slight delay to ensure the transition effect is noticeable
-        });
-
-        const whaleImage = document.getElementById('whale');
-        let isEnlarged = false;
-
-        whaleImage.addEventListener('click', function() {
-            isEnlarged = !isEnlarged;
-            if (isEnlarged) {
-                whaleImage.classList.add('enlarged');
-            } else {
-                whaleImage.classList.remove('enlarged');
-            }
-        });
-    </script>
 </body>
 </html>
-
-
