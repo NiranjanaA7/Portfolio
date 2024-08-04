@@ -84,6 +84,29 @@
     height: auto;
   }
 
+  /* Scroll-up arrow styles */
+  .scroll-up-arrow {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(68, 40, 82);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Ensure it's on top of other content */
+  }
+
+  .scroll-up-arrow:hover {
+    background: rgb(85, 51, 103);
+  }
+
   /* Small screen styles */
   @media only screen and (max-width: 600px) {
     .frame {
@@ -111,6 +134,15 @@
 
     .project-details img {
       margin-bottom: 10px;
+    }
+
+    .scroll-up-arrow {
+      bottom: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 16px;
     }
   }
 </style>
@@ -156,20 +188,14 @@
         whaleImage.classList.remove('enlarged');
       }
     });
+    
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   </script>
-  <body>
-    <!-- Scroll up arrow icon -->
-    <div class="scroll-up-arrow" onclick="scrollToTop()">^</div>
-
-    </div>
-
-    <!-- Script to scroll to the top of the page when arrow is clicked -->
-    <script>
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
   
-</body>
+  <!-- Scroll up arrow icon -->
+  <div class="scroll-up-arrow" onclick="scrollToTop()">^</div>
 
+</body>
 </html>
