@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects - NIRANJANA A</title>
+<link href="https://fonts.googleapis.com/css2?family=Teachers:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* General styles */
+  body {
+    font-family: 'Teachers', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh; /* Minimum height of the viewport */
+    overflow: auto; /* Enable scrolling for the entire page */
+  }
+
+  .frame {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    border: 2px solid rgb(145, 129, 204);
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+  .header {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .header img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s, filter 0.3s; /* Smooth transition for the enlargement effect and filter change */
+  }
+
+  .header img:hover {
+    transform: scale(1.1); /* Enlarge the image on hover */
+  }
+
+  .header img.enlarged {
+    filter: hue-rotate(270deg); /* Change the color to purple when enlarged */
+  }
+
+  .project-details {
+    text-align: left;
+    margin-top: 20px;
+    padding-right: 20px; /* Add some padding to prevent content from touching the frame edges */
+  }
+  .project-details a {
+    color: rgb(68, 40, 82);
+  }
+
+  .project-details h2 {
+    margin: 0 0 10px 0;
+    color: white;
+  }
+
+  .project-details p {
+    margin: 0;
+  }
+
+  .project-details video {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 600px; /* Adjust as needed */
+    height: auto;
+    background-color: black; /* Optional: background color if video does not fill the container */
+  }
+
+  /* Small screen styles */
+  @media only screen and (max-width: 600px) {
+    .frame {
+      width: 95%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    .header img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .project-details {
+      padding-right: 10px;
+    }
+
+    .project-details h2 {
+      font-size: 1.2em;
+    }
+
+    .project-details p {
+      font-size: 1em;
+    }
+
+    .project-details video {
+      margin-bottom: 10px;
+    }
+  }
+
+  .scroll-up-arrow {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(68, 40, 82);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .scroll-up-arrow:hover {
+    background: rgb(85, 51, 103);
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <a href="index.html"><img src="ss/r2.png" alt="Home" id="whale"></a>
+  </div>
+
+  <div class="frame">
+    <div class="project-details">
+      <h2>RKive: Photo Sharing Application</h2>
+      <!-- Add the video element here -->
+      <video controls>
+        <source src="ss/video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <p><strong>Objective:</strong> Build a photo-sharing application that allows users to manage their photos, search for other users' images using keywords, and download images as polaroids. The application is designed using Flask, MySQL, HTML, CSS, and JavaScript.</p>
+
+      <p><strong>Key Features:</strong></p>
+      <ul>
+        <li><strong>Photo Management:</strong> Users can upload, organize, and delete their photos with ease. Each photo can be tagged with keywords for better organization.</li>
+        <li><strong>User Search:</strong> Users can search for images uploaded by other users using keywords. The search functionality helps in discovering new photos and users.</li>
+        <li><strong>Polaroid Download:</strong> Users have the option to download images in a polaroid-style format, enhancing the visual appeal of downloaded photos.</li>
+        <li><strong>User Profiles:</strong> Each user has a profile page where they can view their uploaded photos, manage their account settings, and interact with other users.</li>
+        <li><strong>Responsive Design:</strong> The application is designed to be fully responsive, providing a seamless experience on both desktop and mobile devices.</li>
+      </ul>
+
+      <p><strong>Technologies Used:</strong> Flask for the backend, MySQL for database management, and HTML/CSS/JavaScript for the frontend.</p>
+
+      <p><strong>Impact:</strong> RKive provides a platform for users to share and discover photos, making it easier to manage personal photo collections and connect with other photo enthusiasts.</p>
+
+      <p><strong>Future Enhancements:</strong> Future updates could include features like social media integration, advanced photo editing tools, and enhanced search capabilities using machine learning algorithms.</p>
+    </div>
+  </div>
+  
+  <script>
+    const whaleImage = document.getElementById('whale');
+    let isEnlarged = false;
+
+    whaleImage.addEventListener('click', function() {
+      isEnlarged = !isEnlarged;
+      if (isEnlarged) {
+        whaleImage.classList.add('enlarged');
+      } else {
+        whaleImage.classList.remove('enlarged');
+      }
+    });
+    
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+  
+  <!-- Scroll up arrow icon -->
+  <div class="scroll-up-arrow" onclick="scrollToTop()">^</div>
+
+</body>
+</html>
