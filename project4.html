@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Weather Visualization - NIRANJANA A</title>
+<link href="https://fonts.googleapis.com/css2?family=Teachers:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* General styles */
+  body {
+    font-family: 'Teachers', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh; /* Minimum height of the viewport */
+    overflow: auto; /* Enable scrolling for the entire page */
+  }
+
+  .frame {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    border: 2px solid rgb(145, 129, 204);
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+  .header {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .header img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s, filter 0.3s; /* Smooth transition for the enlargement effect and filter change */
+  }
+
+  .header img:hover {
+    transform: scale(1.1); /* Enlarge the image on hover */
+  }
+
+  .header img.enlarged {
+    filter: hue-rotate(270deg); /* Change the color to purple when enlarged */
+  }
+
+  .project-details {
+    text-align: left;
+    margin-top: 20px;
+    padding-right: 20px; /* Add some padding to prevent content from touching the frame edges */
+  }
+  .project-details a {
+    color: rgb(68, 40, 82);
+  }
+
+  .project-details h2 {
+    margin: 0 0 10px 0;
+    color: white;
+  }
+
+  .project-details p {
+    margin: 0;
+  }
+
+  .project-details img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  /* Center the iframe */
+  .centered-iframe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 615px; /* Set width to 600px */
+    height: 340px; /* Set height to 300px */
+    border: none;
+    border-radius: 10px;
+  }
+
+  /* Scroll-up arrow styles */
+  .scroll-up-arrow {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(68, 40, 82);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Ensure it's on top of other content */
+  }
+
+  .scroll-up-arrow:hover {
+    background: rgb(85, 51, 103);
+  }
+
+  /* Small screen styles */
+  @media only screen and (max-width: 600px) {
+    .frame {
+      width: 95%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    .header img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .project-details {
+      padding-right: 10px;
+    }
+
+    .project-details h2 {
+      font-size: 1.2em;
+    }
+
+    .project-details p {
+      font-size: 1em;
+    }
+
+    .project-details img {
+      margin-bottom: 10px;
+    }
+
+    .centered-iframe {
+      width: 100%; /* Make the iframe responsive on small screens */
+      height: auto; /* Maintain aspect ratio */
+    }
+
+    .scroll-up-arrow {
+      bottom: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 16px;
+    }
+  }
+
+</style>
+</head>
+<body>
+  <div class="header">
+    <a href="index.html"><img src="ss/r2.png" alt="Home" id="whale"></a>
+  </div>
+  <div class="frame">
+    <div class="project-details">
+        <h2>Dynamic Weather Visualization with p5.js</h2>
+        
+        <p><strong>Objective:</strong> Visualize weather data dynamically using p5.js. Select different dates and times to see various weather conditions such as sunny, rainy, cloudy, and thunderstorms with corresponding animations.</p>
+
+        <p><strong>Key Components:</strong></p>
+        <ol>
+            <li><strong>Data Loading:</strong> Load weather data from a CSV file using p5.js.</li>
+            <li><strong>Interactive Elements:</strong> Create dropdowns for selecting dates and times.</li>
+            <li><strong>Dynamic Visualization:</strong> Render different weather conditions with animations based on user input.</li>
+            <li><strong>Day/Night Modes:</strong> Display different weather effects for day and night.</li>
+            <li><strong>Visualization Elements:</strong> Includes clouds, raindrops, and sun/moon based on the weather condition.</li>
+        </ol>
+
+        <p><strong>Results:</strong> Developed an interactive visualization that allows users to explore various weather conditions and animations. Enhanced engagement and understanding of weather patterns through dynamic visualizations.</p>
+        
+        <p><strong>Impact:</strong> Provided a visually engaging tool for exploring weather data. Demonstrated skills in p5.js and interactive data visualization.</p>
+
+        <p><strong>Future Enhancements:</strong> Integrate additional weather parameters for more comprehensive visualizations. Improve the user interface for a more intuitive experience.</p>
+
+        <h3>Live Visualization:</h3>
+        <iframe class="centered-iframe" src="https://editor.p5js.org/niranjanaasaithambi/full/554WP7uVG" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+  
+  <script>
+    const whaleImage = document.getElementById('whale');
+    let isEnlarged = false;
+
+    whaleImage.addEventListener('click', function() {
+      isEnlarged = !isEnlarged;
+      if (isEnlarged) {
+        whaleImage.classList.add('enlarged');
+      } else {
+        whaleImage.classList.remove('enlarged');
+      }
+    });
+    
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+  <!-- Scroll up arrow icon -->
+  <div class="scroll-up-arrow" onclick="scrollToTop()">^</div>
+
+</body>
+</html>
