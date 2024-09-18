@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pizza Sales Analysis and Visualization Dashboard Using Tableau - NIRANJANA A</title>
+<title>Pizza Sales Analysis Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Teachers:wght@400;700&display=swap" rel="stylesheet">
 <style>
   /* General styles */
@@ -28,6 +28,7 @@
     border: 2px solid rgb(145, 129, 204);
     border-radius: 10px;
     margin-top: 20px;
+    background-color: #222;
   }
 
   .header {
@@ -69,10 +70,19 @@
     margin: 0;
   }
 
-  .tableau-placeholder {
-    width: 100%;
-    height: 500px; /* Adjust height as needed */
+  .project-details img {
+    max-width: 100%;
+    height: auto;
     margin-bottom: 20px;
+  }
+
+  /* Center the Tableau dashboard */
+  .tableau-embed {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 600px; /* Adjust height as needed */
+    border: none;
   }
 
   /* Scroll-up arrow styles */
@@ -123,8 +133,12 @@
       font-size: 1em;
     }
 
-    .tableau-placeholder {
-      height: 300px; /* Adjust height for smaller screens */
+    .project-details img {
+      margin-bottom: 10px;
+    }
+
+    .tableau-embed {
+      height: 400px; /* Adjust height for small screens */
     }
 
     .scroll-up-arrow {
@@ -145,46 +159,71 @@
   </div>
   <div class="frame">
     <div class="project-details">
-        <h2>Pizza Sales Analysis and Visualization Dashboard Using Tableau</h2>
-        <div class='tableauPlaceholder' id='viz1726688523074' style='position: relative'>
-            <noscript>
-                <a href='#'>
-                    <img alt='PIZZA SALES ANALYSIS DASHBOARD (2) ' src='https://public.tableau.com/static/images/Pi/Pizzasales_17266871771050/PIZZASALESANALYSISDASHBOARD2/1_rss.png' style='border: none' />
-                </a>
-            </noscript>
-            <object class='tableauViz' style='display:none;'>
-                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                <param name='embed_code_version' value='3' />
-                <param name='site_root' value='' />
-                <param name='name' value='Pizzasales_17266871771050/PIZZASALESANALYSISDASHBOARD2' />
-                <param name='tabs' value='no' />
-                <param name='toolbar' value='yes' />
-                <param name='static_image' value='https://public.tableau.com/static/images/Pi/Pizzasales_17266871771050/PIZZASALESANALYSISDASHBOARD2/1.png' />
-                <param name='animate_transition' value='yes' />
-                <param name='display_static_image' value='yes' />
-                <param name='display_spinner' value='yes' />
-                <param name='display_overlay' value='yes' />
-                <param name='display_count' value='yes' />
-                <param name='language' value='en-US' />
-                <param name='filter' value='publish=yes' />
-            </object>
-        </div>
-        <p><strong>Objective:</strong> To analyze pizza sales data and create a comprehensive visualization dashboard using Tableau, focusing on key performance metrics, trends, and customer insights.</p>
+        <h2>Pizza Sales Analysis Dashboard Using Tableau</h2>
+        <p><strong>Objective:</strong> Analyze pizza sales data using Tableau to gain insights into sales patterns, peak times, and product performance.</p>
 
         <p><strong>Key Components:</strong></p>
         <ol>
-            <li><strong>Data Integration:</strong> Combined sales data from multiple sources using Tableau to create a unified dataset.</li>
-            <li><strong>Data Analysis:</strong> Utilized Tableau functionalities to analyze data and create insightful visualizations.</li>
-            <li><strong>Dynamic Dashboard:</strong> Developed an interactive dashboard with Tableau’s features to visualize key metrics such as total orders, revenue, and peak sales times.</li>
-            <li><strong>Heatmaps and Charts:</strong> Created heatmaps for peak sales periods and various charts (bar, line, pie) to display sales by day, pizza type, and size.</li>
-            <li><strong>Automation:</strong> Automated data updates and dashboard refreshes to ensure real-time accuracy.</li>
+            <li><strong>Data Integration:</strong> Integrated multiple data sources using Tableau to create a comprehensive analysis.</li>
+            <li><strong>Dynamic Visualization:</strong> Developed interactive dashboards with filters and parameters to explore various aspects of pizza sales.</li>
+            <li><strong>Peak Analysis:</strong> Identified peak sales periods and popular products to optimize inventory and promotions.</li>
+            <li><strong>Trend Analysis:</strong> Visualized trends in sales over time to inform business decisions.</li>
         </ol>
 
-        <p><strong>Results:</strong> Delivered a dynamic and interactive dashboard that provides clear insights into pizza sales trends, peak times, and best-selling items. Enhanced decision-making and strategic planning through actionable data visualization.</p>
+        <p><strong>Results:</strong> Created a dynamic and interactive dashboard that provides valuable insights into pizza sales patterns, helping to make informed business decisions.</p>
         
-        <p><strong>Impact:</strong> Enabled stakeholders to make informed decisions with a clear, data-driven view of sales performance. Demonstrated proficiency in Tableau and the ability to create complex visualizations.</p>
+        <p><strong>Impact:</strong> Provided a powerful tool for analyzing sales data and identifying key trends and patterns. Demonstrated proficiency in Tableau for data visualization.</p>
 
-        <p><strong>Future Enhancements:</strong> Plan to integrate additional data sources for a more comprehensive analysis. Explore advanced visualization techniques and improve the dashboard's usability and design.</p>
+        <p><strong>Future Enhancements:</strong> Incorporate more advanced analytics features and predictive models. Enhance dashboard design for better user experience.</p>
+
+        <h3>Live Visualization:</h3>
+        <div class='tableauPlaceholder' id='viz1726688523074' style='position: relative'>
+          <noscript>
+            <a href='#'>
+              <img alt='Pizza Sales Analysis Dashboard' src='https://public.tableau.com/static/images/Pi/Pizzasales_17266871771050/PIZZASALESANALYSISDASHBOARD2/1_rss.png' style='border: none'/>
+            </a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https://public.tableau.com/' />
+            <param name='embed_code_version' value='3' />
+            <param name='name' value='Pizzasales_17266871771050/PIZZASALESANALYSISDASHBOARD2' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https://public.tableau.com/static/images/Pi/Pizzasales_17266871771050/PIZZASALESANALYSISDASHBOARD2/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en-US' />
+            <param name='filter' value='publish=yes' />
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('viz1726688523074');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          if ( divElement.offsetWidth > 800 ) {
+            vizElement.style.minWidth='420px';
+            vizElement.style.maxWidth='1550px';
+            vizElement.style.width='100%';
+            vizElement.style.minHeight='587px';
+            vizElement.style.maxHeight='1087px';
+            vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+          } else if ( divElement.offsetWidth > 500 ) {
+            vizElement.style.minWidth='420px';
+            vizElement.style.maxWidth='1550px';
+            vizElement.style.width='100%';
+            vizElement.style.minHeight='587px';
+            vizElement.style.maxHeight='1087px';
+            vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+          } else {
+            vizElement.style.width='100%';
+            vizElement.style.height='2827px';
+          }
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
     </div>
   </div>
   
@@ -204,33 +243,6 @@
     function scrollToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    
-    // Initialize Tableau Visualization
-    document.addEventListener('DOMContentLoaded', function() {
-      var divElement = document.getElementById('viz1726688523074');
-      var vizElement = divElement.getElementsByTagName('object')[0];
-      if (divElement.offsetWidth > 800) {
-        vizElement.style.minWidth = '420px';
-        vizElement.style.maxWidth = '1550px';
-        vizElement.style.width = '100%';
-        vizElement.style.minHeight = '587px';
-        vizElement.style.maxHeight = '1087px';
-        vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-      } else if (divElement.offsetWidth > 500) {
-        vizElement.style.minWidth = '420px';
-        vizElement.style.maxWidth = '1550px';
-        vizElement.style.width = '100%';
-        vizElement.style.minHeight = '587px';
-        vizElement.style.maxHeight = '1087px';
-        vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-      } else {
-        vizElement.style.width = '100%';
-        vizElement.style.height = '2827px';
-      }
-      var scriptElement = document.createElement('script');
-      scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-      vizElement.parentNode.insertBefore(scriptElement, vizElement);
-    });
   </script>
 
   <!-- Scroll up arrow icon -->
