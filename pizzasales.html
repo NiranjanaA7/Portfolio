@@ -76,12 +76,13 @@
     margin-bottom: 20px;
   }
 
-  /* Center the Tableau dashboard */
-  .tableau-embed {
+  /* Center the static image */
+  .centered-image {
     display: block;
     margin: 0 auto;
     width: 100%;
-    height: 600px; /* Adjust height as needed */
+    max-width: 600px;
+    height: auto;
     border: none;
   }
 
@@ -137,8 +138,9 @@
       margin-bottom: 10px;
     }
 
-    .tableau-embed {
-      height: 400px; /* Adjust height for small screens */
+    .centered-image {
+      max-width: 100%;
+      height: auto;
     }
 
     .scroll-up-arrow {
@@ -176,54 +178,10 @@
 
         <p><strong>Future Enhancements:</strong> Incorporate more advanced analytics features and predictive models. Enhance dashboard design for better user experience.</p>
 
-        <h3>Live Visualization:</h3>
-        <div class='tableauPlaceholder' id='viz1726688523074' style='position: relative'>
-          <noscript>
-            <a href='#'>
-              <img alt='Pizza Sales Analysis Dashboard' src='https://public.tableau.com/static/images/Pi/Pizzasales_17266871771050/PIZZASALESANALYSISDASHBOARD2/1_rss.png' style='border: none'/>
-            </a>
-          </noscript>
-          <object class='tableauViz' style='display:none;'>
-            <param name='host_url' value='https://public.tableau.com/' />
-            <param name='embed_code_version' value='3' />
-            <param name='name' value='Pizzasales_17266871771050/PIZZASALESANALYSISDASHBOARD2' />
-            <param name='tabs' value='no' />
-            <param name='toolbar' value='yes' />
-            <param name='static_image' value='https://public.tableau.com/static/images/Pi/Pizzasales_17266871771050/PIZZASALESANALYSISDASHBOARD2/1.png' />
-            <param name='animate_transition' value='yes' />
-            <param name='display_static_image' value='yes' />
-            <param name='display_spinner' value='yes' />
-            <param name='display_overlay' value='yes' />
-            <param name='display_count' value='yes' />
-            <param name='language' value='en-US' />
-            <param name='filter' value='publish=yes' />
-          </object>
-        </div>
-        <script type='text/javascript'>
-          var divElement = document.getElementById('viz1726688523074');
-          var vizElement = divElement.getElementsByTagName('object')[0];
-          if ( divElement.offsetWidth > 800 ) {
-            vizElement.style.minWidth='420px';
-            vizElement.style.maxWidth='1550px';
-            vizElement.style.width='100%';
-            vizElement.style.minHeight='587px';
-            vizElement.style.maxHeight='1087px';
-            vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-          } else if ( divElement.offsetWidth > 500 ) {
-            vizElement.style.minWidth='420px';
-            vizElement.style.maxWidth='1550px';
-            vizElement.style.width='100%';
-            vizElement.style.minHeight='587px';
-            vizElement.style.maxHeight='1087px';
-            vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-          } else {
-            vizElement.style.width='100%';
-            vizElement.style.height='2827px';
-          }
-          var scriptElement = document.createElement('script');
-          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-          vizElement.parentNode.insertBefore(scriptElement, vizElement);
-        </script>
+        <h3>Visualization:</h3>
+        <a href="https://public.tableau.com/views/Pizzasales_17266871771050/PIZZASALESANALYSISDASHBOARD2?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">
+          <img src="https://public.tableau.com/static/images/Pi/Pizzasales_17266871771050/PIZZASALESANALYSISDASHBOARD2/1.png" alt="Pizza Sales Analysis Dashboard" class="centered-image">
+        </a>
     </div>
   </div>
   
