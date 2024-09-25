@@ -147,6 +147,59 @@
   <div class="frame">
     <div class="project-details">
         <h2>Data Science Job Market - Exploratory Data Analysis</h2>
+        <h2>Step-by-Step Data Cleaning and Visualization</h2>
+
+        <!-- Section 1: Data Cleaning and Regex -->
+        <h3>Step 1: Data Cleaning and Regex Application</h3>
+        <p><strong>Objective:</strong> The first step in the data analysis process is to clean the raw data to ensure consistency, accuracy, and reliability. This involves removing inconsistencies and standardizing formats using regular expressions (regex).</p>
+
+        <p><strong>Step-by-Step Process:</strong></p>
+        <ol>
+            <li><strong>Removing Non-Numeric Characters from Salary Data:</strong>
+                <ul>
+                    <li>Raw salary data often includes symbols (e.g., "$", ",", "K"). These symbols were removed using regex:</li>
+                    <code>salary = re.sub(r'[^\d]', '', salary)</code>
+                    <p>This line of code removes everything except digits, leaving a clean numeric salary format.</p>
+                </ul>
+            </li>
+
+            <li><strong>Standardizing 'K' to '000' for Salary:</strong>
+                <ul>
+                    <li>Salary values like "100K" were standardized to "100000" using regex:</li>
+                    <code>salary = re.sub(r'[Kk]', '000', salary)</code>
+                    <p>Here, 'K' or 'k' is replaced with '000' to give consistent results.</p>
+                </ul>
+            </li>
+
+            <li><strong>Extracting Experience Range:</strong>
+                <ul>
+                    <li>Experience fields like "3-5 years" were cleaned and the numerical values extracted using:</li>
+                    <code>experience = re.findall(r'\d+', experience)</code>
+                    <p>This extracts all numbers from the experience field.</p>
+                </ul>
+            </li>
+
+            <li><strong>Cleaning Job Titles:</strong>
+                <ul>
+                    <li>Job titles sometimes contain special characters (e.g., "Data Scientist!"). Regex helps clean those titles:</li>
+                    <code>job_title = re.sub(r'[^\w\s]', '', job_title)</code>
+                    <p>This removes all special characters, leaving only letters and spaces.</p>
+                </ul>
+            </li>
+
+            <li><strong>Standardizing Location Data:</strong>
+                <ul>
+                    <li>City and state fields were standardized by removing any non-alphabetic characters:</li>
+                    <code>location = re.sub(r'[^a-zA-Z\s]', '', location)</code>
+                    <p>This regex removes numbers, symbols, or other irrelevant characters.</p>
+                </ul>
+            </li>
+        </ol>
+
+        <p><strong>Results:</strong> After this cleaning process, the dataset is now consistent, with clean salary, experience, job title, and location data, ready for further analysis.</p>
+
+        <!-- Section 2: Data Visualization -->
+        <h3>Step 2: Data Visualization</h3>
 
         <h3>1. Job Title Distribution</h3>
         <img src="ss/dsvis1.png" alt="Job Title Distribution">
