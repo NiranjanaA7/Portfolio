@@ -1,0 +1,208 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Science Job Market EDA</title>
+<link href="https://fonts.googleapis.com/css2?family=Teachers:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* General styles */
+  body {
+    font-family: 'Teachers', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: auto;
+  }
+
+  .frame {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    border: 2px solid rgb(145, 129, 204);
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+  .header {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .header img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s, filter 0.3s;
+  }
+
+  .header img:hover {
+    transform: scale(1.1);
+  }
+
+  .header img.enlarged {
+    filter: hue-rotate(270deg);
+  }
+
+  .project-details {
+    text-align: left;
+    margin-top: 20px;
+    padding-right: 20px;
+  }
+  .project-details a {
+    color: rgb(68, 40, 82);
+  }
+
+  .project-details h2 {
+    margin: 0 0 10px 0;
+    color: white;
+  }
+
+  .project-details p {
+    margin: 0;
+  }
+
+  .project-details img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  /* Scroll-up arrow styles */
+  .scroll-up-arrow {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(68, 40, 82);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+  .scroll-up-arrow:hover {
+    background: rgb(85, 51, 103);
+  }
+
+  /* Small screen styles */
+  @media only screen and (max-width: 600px) {
+    .frame {
+      width: 95%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    .header img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .project-details {
+      padding-right: 10px;
+    }
+
+    .project-details h2 {
+      font-size: 1.2em;
+    }
+
+    .project-details p {
+      font-size: 1em;
+    }
+
+    .project-details img {
+      margin-bottom: 10px;
+    }
+
+    .scroll-up-arrow {
+      bottom: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 16px;
+    }
+  }
+
+</style>
+</head>
+<body>
+  <div class="header">
+    <a href="index.html"><img src="ss/data-science.png" alt="Home" id="whale"></a>
+  </div>
+  <div class="frame">
+    <div class="project-details">
+        <h2>Data Science Job Market - Exploratory Data Analysis</h2>
+
+        <h3>1. Job Title Distribution</h3>
+        <img src="ss/dsvis1.png" alt="Job Title Distribution">
+        <p><strong>Observation:</strong> Data Scientist, Analyst, and Data Engineer roles are the most prevalent, indicating their high demand in the industry.</p>
+
+        <h3>2. Seniority Level Distribution</h3>
+        <img src="ss/dsvis2.png" alt="Seniority Level Distribution">
+        <p><strong>Observation:</strong> The majority of jobs are aimed at mid-level professionals, suggesting fewer opportunities for entry-level or highly senior positions.</p>
+
+        <h3>3. Salary Distribution by Job Title</h3>
+        <img src="ss/dsvis3.png" alt="Salary Distribution by Job Title">
+        <p><strong>Observation:</strong> Leadership roles like Director and technical roles like Data Scientist and Machine Learning Engineer tend to command higher salaries compared to analyst or manager positions. There are some outliers, especially for roles like Data Scientist, Machine Learning Engineer, and Director, indicating a few extreme salary values.</p>
+
+        <h3>4. Distribution of Remote Jobs</h3>
+        <img src="ss/dsvis4.png" alt="Distribution of Remote Jobs">
+        <p><strong>Observation:</strong> Remote jobs are fewer compared to in-office roles, though remote work is available as an option.</p>
+
+        <h3>5. Skills Required in Job Listings</h3>
+        <img src="ss/dsvis5.png" alt="Skills Required">
+        <p><strong>Observation:</strong> Python is the most in-demand skill, followed closely by SQL and AWS, reflecting their critical importance in the data science field.</p>
+
+        <h3>6. Years of Experience Required</h3>
+        <img src="ss/dsvis6.png" alt="Years of Experience Required">
+        <p><strong>Observation:</strong> Most jobs require between 3-5 years of experience, indicating that mid-level professionals are in high demand.</p>
+
+        <h3>7. Job Openings by State</h3>
+        <img src="ss/dsvis7.png" alt="Job Openings by State">
+        <p><strong>Observation:</strong> California, Texas, and New York are the top states for data science job opportunities, reflecting their prominence as tech hubs.</p>
+
+        <h3>8. Word Cloud for Job Descriptions</h3>
+        <img src="ss/dsvis8.png" alt="Word Cloud for Job Descriptions">
+        <p><strong>Observation:</strong> Frequent words include "data," "experience," "team," and "machine learning," indicating the emphasis on data skills and collaborative work in job listings.</p>
+
+        <p><strong>Conclusion:</strong> This analysis highlights key insights into the data science job market, revealing trends in job titles, salaries, required skills, experience levels, and job types (remote vs in-person). These insights can be useful for both job seekers and employers in the data science field.</p>
+    </div>
+  </div>
+
+  <script>
+    const whaleImage = document.getElementById('whale');
+    let isEnlarged = false;
+
+    whaleImage.addEventListener('click', function() {
+      isEnlarged = !isEnlarged;
+      if (isEnlarged) {
+        whaleImage.classList.add('enlarged');
+      } else {
+        whaleImage.classList.remove('enlarged');
+      }
+    });
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+  <!-- Scroll up arrow icon -->
+  <div class="scroll-up-arrow" onclick="scrollToTop()">^</div>
+
+</body>
+</html>
