@@ -56,6 +56,7 @@
     margin-top: 20px;
     padding-right: 20px;
   }
+
   .project-details h2 {
     margin: 0 0 10px 0;
     color: white;
@@ -71,7 +72,6 @@
     margin-bottom: 20px;
   }
 
-  /* Center the second image */
   .centered-image {
     display: block;
     margin-left: auto;
@@ -149,24 +149,51 @@
   <div class="frame">
     <div class="project-details">
         <h2>Sales Analysis Dashboard</h2>
-        <p><strong>Objective:</strong> Analyze sales data to uncover product performance trends and customer behavior patterns over time.</p>
+        <p><strong>Objective:</strong> Analyze sales data to uncover product performance trends, customer behavior patterns, and insights into demographic distributions over time.</p>
 
         <p><strong>Key Components:</strong></p>
         <ol>
-            <li><strong>Product Sales:</strong> Analyze total sales figures for various products. Top-performing products include Denim ($18,128) and Bomber Jackets ($14,800).</li>
-            <li><strong>Monthly Sales Trend:</strong> Sales peaked in March 2021, with a total of $58,844, followed by fluctuations in the subsequent months.</li>
-            <li><strong>Customer Lifetime Value (CLV):</strong> High-spending customers such as Wren Helgass (lifetime value: $7,632) and Melissa Partkya (lifetime value: $5,435).</li>
-            <li><strong>Customer Demographics:</strong> Customer data includes insights on gender, age, and spending categories, with notable spending trends across genders.</li>
-            <li><strong>Average Age:</strong> The average age of the customers is approximately 50.8 years.</li>
+            <li><strong>Product Sales:</strong> Analyze the total sales of various products to determine the top-performing items.
+              <br> <img src="ss/1sql.png" alt="Product Sales" class="centered-image">
+              <br>Top-performing products include Denim ($18,128) and Bomber ($14,800).</li>
+
+            <li><strong>Monthly Sales Trend:</strong> Visualize the sales patterns over time to identify peak months and trends.
+              <br> <img src="ss/4sql.png" alt="Monthly Sales Trend" class="centered-image">
+              <br>Sales peaked in March 2021 with $58,844, and declined slightly in October 2021 with $30,691.</li>
+
+            <li><strong>Customer Last Order Date:</strong> Track customer activity based on their last order date to gauge loyalty and retention.
+              <br> <img src="ss/6sql.png" alt="Customer Last Order Date" class="centered-image">
+              <br>Most recent orders were placed by customers like Marabel Swinton on 2021-09-28 and Gabbie Aldwinde on 2021-10-18.</li>
+
+            <li><strong>Customer Lifetime Value (CLV):</strong> Calculate the lifetime value of each customer to identify high-spending clients.
+              <br> <img src="ss/7sql.png" alt="Customer Lifetime Value" class="centered-image">
+              <br>High-spending customers include Wren Helgass ($7,632) and Melissa Partkya ($5,435).</li>
+
+            <li><strong>Customer Payments:</strong> Analyze the total payments made by customers to better understand revenue contributions.
+              <br> <img src="ss/5sql.png" alt="Customer Payments" class="centered-image">
+              <br>Top payments were made by Wren Helgass ($205,614) and Mallory Castellani ($163,068).</li>
+
+            <li><strong>Customer Gender Distribution:</strong> Analyze the breakdown of customers by gender to understand demographic trends.
+              <br> <img src="ss/2sqlr.png" alt="Customer Gender Distribution" class="centered-image">
+              <br>Customer breakdown by gender: Female (115), Male (143), and Non-binary (131).</li>
+
+            <li><strong>Customer Average Age:</strong> Calculate the average age of customers to better understand the target audience.
+              <br> <img src="ss/3sql.png" alt="Customer Average Age" class="centered-image">
+              <br>The average customer age is 50.80 years.</li>
+
+            <li><strong>Top Spenders and Spending Rank:</strong> Rank customers based on total spending to identify high-value customers.
+              <br> <img src="ss/8sql.png" alt="Top Spenders and Rank" class="centered-image">
+              <br>Wren Helgass ranks #1 with the highest spending of $7,632.</li>
         </ol>
 
-        <p><strong>Results:</strong> The Analysis provides valuable insights into product sales performance, customer lifetime value, and demographic patterns, helping businesses make informed decisions on inventory and marketing strategies.</p>
+        <p><strong>Results:</strong> The Analysis provides valuable insights into product performance, monthly sales trends, customer demographics, and spending patterns, helping businesses make data-driven decisions for inventory and marketing strategies.</p>
         
-        <p><strong>Impact:</strong> This analysis identifies key customer segments and trends that can drive future marketing and inventory decisions, improving overall sales performance.</p>
+        <p><strong>Impact:</strong> This analysis highlights key customer segments and product trends, offering actionable insights to optimize inventory, boost marketing efforts, and improve overall sales performance.</p>
 
-        <p><strong>Future Enhancements:</strong> Incorporate predictive models to forecast future sales trends and customer behavior based on current data.</p>
+        <p><strong>Future Enhancements:</strong> Incorporate advanced analytics features, such as predictive models, to forecast future sales trends and customer behavior based on the current data.</p>
 
-    
+        <h3>Visualization:</h3>
+        <img src="ss/dashboard_overview.png" alt="Sales Analysis Dashboard" class="centered-image">
     </div>
   </div>
 
