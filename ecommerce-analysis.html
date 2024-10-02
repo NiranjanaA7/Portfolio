@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales Analysis Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Teachers:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* General styles */
+  body {
+    font-family: 'Teachers', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: auto;
+  }
+
+  .frame {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    border: 2px solid rgb(145, 129, 204);
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+  .header {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .header img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s, filter 0.3s;
+  }
+
+  .header img:hover {
+    transform: scale(1.1);
+  }
+
+  .header img.enlarged {
+    filter: hue-rotate(270deg);
+  }
+
+  .project-details {
+    text-align: left;
+    margin-top: 20px;
+    padding-right: 20px;
+  }
+  .project-details h2 {
+    margin: 0 0 10px 0;
+    color: white;
+  }
+
+  .project-details p {
+    margin: 0;
+  }
+
+  .project-details img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  /* Center the second image */
+  .centered-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .scroll-up-arrow {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(68, 40, 82);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+  .scroll-up-arrow:hover {
+    background: rgb(85, 51, 103);
+  }
+
+  /* Small screen styles */
+  @media only screen and (max-width: 600px) {
+    .frame {
+      width: 95%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    .header img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .project-details {
+      padding-right: 10px;
+    }
+
+    .project-details h2 {
+      font-size: 1.2em;
+    }
+
+    .project-details p {
+      font-size: 1em;
+    }
+
+    .project-details img {
+      margin-bottom: 10px;
+    }
+
+    .scroll-up-arrow {
+      bottom: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 16px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <a href="index.html"><img src="ss/r2.png" alt="Home" id="whale"></a>
+  </div>
+  <div class="frame">
+    <div class="project-details">
+        <h2>Sales Analysis Dashboard</h2>
+        <p><strong>Objective:</strong> Analyze sales data to uncover product performance trends and customer behavior patterns over time.</p>
+
+        <p><strong>Key Components:</strong></p>
+        <ol>
+            <li><strong>Product Sales:</strong> Analyze total sales figures for various products. Top-performing products include Denim ($18,128) and Bomber Jackets ($14,800).</li>
+            <li><strong>Monthly Sales Trend:</strong> Sales peaked in March 2021, with a total of $58,844, followed by fluctuations in the subsequent months.</li>
+            <li><strong>Customer Lifetime Value (CLV):</strong> High-spending customers such as Wren Helgass (lifetime value: $7,632) and Melissa Partkya (lifetime value: $5,435).</li>
+            <li><strong>Customer Demographics:</strong> Customer data includes insights on gender, age, and spending categories, with notable spending trends across genders.</li>
+            <li><strong>Average Age:</strong> The average age of the customers is approximately 50.8 years.</li>
+        </ol>
+
+        <p><strong>Results:</strong> The Analysis provides valuable insights into product sales performance, customer lifetime value, and demographic patterns, helping businesses make informed decisions on inventory and marketing strategies.</p>
+        
+        <p><strong>Impact:</strong> This analysis identifies key customer segments and trends that can drive future marketing and inventory decisions, improving overall sales performance.</p>
+
+        <p><strong>Future Enhancements:</strong> Incorporate predictive models to forecast future sales trends and customer behavior based on current data.</p>
+
+    
+    </div>
+  </div>
+
+  <script>
+    const whaleImage = document.getElementById('whale');
+    let isEnlarged = false;
+
+    whaleImage.addEventListener('click', function() {
+      isEnlarged = !isEnlarged;
+      if (isEnlarged) {
+        whaleImage.classList.add('enlarged');
+      } else {
+        whaleImage.classList.remove('enlarged');
+      }
+    });
+    
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+  <div class="scroll-up-arrow" onclick="scrollToTop()">^</div>
+
+</body>
+</html>
