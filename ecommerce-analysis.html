@@ -1,219 +1,403 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sales Analysis Dashboard</title>
-<link href="https://fonts.googleapis.com/css2?family=Teachers:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  /* General styles */
-  body {
-    font-family: 'Teachers', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: black;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    min-height: 100vh;
-    overflow: auto;
-  }
+<title>E-Commerce Analytics Dashboard — SQL, Power BI & DAX</title>
+<link href="https://fonts.googleapis.com/css2?family=Teachers:wght@400;700&display=swap" rel="stylesheet"> 
+<style> 
+  /* General styles */ 
+  body { 
+    font-family: 'Teachers', sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    background-color: black; 
+    color: white; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column; 
+    min-height: 100vh; 
+    overflow: auto; 
+  } 
+ 
+  .frame { 
+    width: 90%; 
+    max-width: 800px; 
+    padding: 20px; 
+    border: 2px solid rgb(145, 129, 204); 
+    border-radius: 10px; 
+    margin-top: 20px; 
+  } 
+ 
+  .header { 
+    text-align: center; 
+    margin-top: 20px; 
+  } 
+ 
+  .header img { 
+    width: 130px; 
+    height: 130px; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    transition: transform 0.3s, filter 0.3s; 
+  } 
+ 
+  .header img:hover { 
+    transform: scale(1.1); 
+  } 
+ 
+  .header img.enlarged { 
+    filter: hue-rotate(270deg); 
+  } 
+ 
+  .project-details { 
+    text-align: left; 
+    margin-top: 20px; 
+    padding-right: 20px; 
+  } 
+  .project-details a { 
+    color: rgb(68, 40, 82); 
+  } 
+ 
+  .project-details h2 { 
+    margin: 0 0 10px 0; 
+    color: white; 
+  } 
+ 
+  .project-details p { 
+    margin: 0; 
+  } 
+ 
+  .project-details img { 
+    max-width: 100%; 
+    height: auto; 
+    margin-bottom: 20px; 
+  } 
+ 
+  /* Scroll-up arrow styles */ 
+  .scroll-up-arrow { 
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    background: rgb(68, 40, 82); 
+    color: white; 
+    border: none; 
+    border-radius: 50%; 
+    width: 40px; 
+    height: 40px; 
+    text-align: center; 
+    line-height: 40px; 
+    cursor: pointer; 
+    font-size: 20px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+  } 
+ 
+  .scroll-up-arrow:hover { 
+    background: rgb(85, 51, 103); 
+  } 
+ 
+  /* Small screen styles */ 
+  @media only screen and (max-width: 600px) { 
+    .frame { 
+      width: 95%; 
+      padding: 10px; 
+      margin-top: 10px; 
+    } 
+ 
+    .header img { 
+      width: 100px; 
+      height: 100px; 
+    } 
+ 
+    .project-details { 
+      padding-right: 10px; 
+    } 
+ 
+    .project-details h2 { 
+      font-size: 1.2em; 
+    } 
+ 
+    .project-details p { 
+      font-size: 1em; 
+    } 
+ 
+    .project-details img { 
+      margin-bottom: 10px; 
+    } 
+ 
+    .scroll-up-arrow { 
+      bottom: 10px; 
+      right: 10px; 
+      width: 30px; 
+      height: 30px; 
+      line-height: 30px; 
+      font-size: 16px; 
+    } 
+  } 
+ 
+</style> 
+</head> 
+<body> 
+  <div class="header"> 
+    <a href="index.html"><img src="ss/r2.png" alt="Home" id="whale"></a> 
+     
+  </div> 
+  <div class="frame"> 
+    <div class="project-details"> 
+        <h2>🛒 E-Commerce Analytics Dashboard</h2> 
+        <p><strong>End-to-End Data Analytics Project | SQL → Power BI → DAX</strong></p> 
 
-  .frame {
-    width: 90%;
-    max-width: 800px;
-    padding: 20px;
-    border: 2px solid rgb(145, 129, 204);
-    border-radius: 10px;
-    margin-top: 20px;
-  }
+        <!-- Section: Overview --> 
+        <h3>📌 Project Overview</h3> 
+        <p>An end-to-end e-commerce analytics project that takes a relational SQL dataset (Customers, Orders, Products, Sales) through to a fully interactive Power BI dashboard. The project demonstrates the same analytical logic implemented twice — once in SQL, once in DAX — to show both skill sets working toward the same business questions.</p> 
+        <pre style="background: rgba(145,129,204,0.1); border: 1px solid rgb(145,129,204); border-radius: 8px; padding: 14px; overflow-x: auto; white-space: pre-wrap;"><code>Raw E-Commerce Dataset
+        ↓
+SQL Database (4 tables, 13 queries, 4 views)
+        ↓
+Power BI Import
+        ↓
+Star Schema Data Model
+        ↓
+DAX Measures + Date Table
+        ↓
+3-Page Interactive Dashboard</code></pre> 
 
-  .header {
-    text-align: center;
-    margin-top: 20px;
-  }
+        <!-- Section: Business Problem --> 
+        <h3>🎯 Business Problem</h3> 
+        <p>An e-commerce business generates data across customers, orders, products, and transactions. This project turns that raw data into decision-ready insights, answering questions such as:</p> 
+        <ul> 
+            <li>How much revenue is the business generating, and is it growing month over month?</li> 
+            <li>Which customers and products drive the most revenue?</li> 
+            <li>How are customers distributed across spending segments, gender, and age?</li> 
+            <li>Who is the top customer in each state?</li> 
+            <li>Which product categories and individual products perform best?</li> 
+            <li>How does price relate to quantity sold?</li> 
+        </ul> 
 
-  .header img {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.3s, filter 0.3s;
-  }
+        <!-- Section: Tools & Technologies --> 
+        <h3>🛠️ Tools & Technologies</h3> 
+        <table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; width: 100%;"> 
+            <tr> 
+                <th>Tool</th> 
+                <th>Purpose</th> 
+            </tr> 
+            <tr> 
+                <td>SQL</td> 
+                <td>Table design, joins, CTEs, window functions, views</td> 
+            </tr> 
+            <tr> 
+                <td>Power BI</td> 
+                <td>Data modeling, DAX, dashboard design</td> 
+            </tr> 
+            <tr> 
+                <td>DAX</td> 
+                <td>Measures, time intelligence, ranking, segmentation</td> 
+            </tr> 
+            <tr> 
+                <td>Power Query</td> 
+                <td>Data loading and transformation</td> 
+            </tr> 
+        </table> 
 
-  .header img:hover {
-    transform: scale(1.1);
-  }
+        <!-- Section: Database Design --> 
+        <h3>🗄️ Database Design</h3> 
+        <p>Four relational tables with primary/foreign key relationships:</p> 
+        <pre style="background: rgba(145,129,204,0.1); border: 1px solid rgb(145,129,204); border-radius: 8px; padding: 14px; overflow-x: auto; white-space: pre-wrap;"><code>Customers ──customer_id──► Orders ──order_id──► Sales ◄──product_id── Products</code></pre> 
+        <ul> 
+            <li><strong>Customers</strong>: customer_id, customer_name, gender, age, city, state, country</li> 
+            <li><strong>Orders</strong>: order_id, customer_id, payment, order_date, delivery_date</li> 
+            <li><strong>Products</strong>: product_id, product_type, product_name, size, colour, price</li> 
+            <li><strong>Sales</strong>: sales_id, order_id, product_id, price_per_unit, quantity, total_price</li> 
+        </ul> 
 
-  .header img.enlarged {
-    filter: hue-rotate(270deg);
-  }
+        <!-- Section: SQL Analysis --> 
+        <h3>🔍 SQL Analysis</h3> 
+        <p>13 analytical queries covering joins, a CTE-based customer segmentation model, and window functions:</p> 
+        <pre style="background: rgba(145,129,204,0.1); border: 1px solid rgb(145,129,204); border-radius: 8px; padding: 14px; overflow-x: auto; white-space: pre-wrap;"><code>RANK()        -- customer spending rank
+DENSE_RANK()  -- product ranking
+ROW_NUMBER()  -- top customer per state (PARTITION BY state)
+LAG()         -- previous month revenue
+SUM() OVER()  -- running revenue</code></pre> 
+        <p>Four reusable views were also built (<code>vw_monthly_sales</code>, <code>vw_customer_summary</code>, <code>vw_product_summary</code>, <code>vw_kpi_summary</code>) and used as a <strong>QA/validation layer</strong> — see Key Decisions below.</p> 
 
-  .project-details {
-    text-align: left;
-    margin-top: 20px;
-    padding-right: 20px;
-  }
+        <!-- Section: Power BI Data Model --> 
+        <h3>⭐ Power BI Data Model</h3> 
+        <p>A star schema was built using the <strong>raw tables</strong>, not the SQL views — this was a deliberate design decision (explained below).</p> 
+        <pre style="background: rgba(145,129,204,0.1); border: 1px solid rgb(145,129,204); border-radius: 8px; padding: 14px; overflow-x: auto; white-space: pre-wrap;"><code>                 DateTable
+                     │
+                     ▼
+Customers ───► Orders ───► Sales ◄─── Products</code></pre> 
+        <ul> 
+            <li>One-to-many, single-direction relationships</li> 
+            <li>Dedicated <code>DateTable</code> built via <code>CALENDAR()</code>, marked as an official Date Table to support time intelligence</li> 
+            <li>Dataset spans <strong>January 2021 – October 2021</strong></li> 
+        </ul> 
 
-  .project-details h2 {
-    margin: 0 0 10px 0;
-    color: white;
-  }
+        <!-- Section: DAX Measures --> 
+        <h3>🧮 Key DAX Measures</h3> 
+        <pre style="background: rgba(145,129,204,0.1); border: 1px solid rgb(145,129,204); border-radius: 8px; padding: 14px; overflow-x: auto; white-space: pre-wrap;"><code>Total Revenue = SUM(Sales[total_price])
 
-  .project-details p {
-    margin: 0;
-  }
+Active Customers = DISTINCTCOUNT(Orders[customer_id])
 
-  .project-details img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-  }
+Average Order Value = DIVIDE([Total Revenue], [Total Orders])
 
-  .centered-image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    height: auto;
-  }
+Running Revenue =
+CALCULATE(
+    [Total Revenue],
+    FILTER(ALLSELECTED(DateTable), DateTable[Date] &lt;= MAX(DateTable[Date]))
+)
 
-  .scroll-up-arrow {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgb(68, 40, 82);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-    cursor: pointer;
-    font-size: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-  }
+Previous Month Revenue =
+CALCULATE([Total Revenue], DATEADD(DateTable[Date], -1, MONTH))
 
-  .scroll-up-arrow:hover {
-    background: rgb(85, 51, 103);
-  }
+MoM Growth % =
+DIVIDE([Total Revenue] - [Previous Month Revenue], [Previous Month Revenue])
 
-  /* Small screen styles */
-  @media only screen and (max-width: 600px) {
-    .frame {
-      width: 95%;
-      padding: 10px;
-      margin-top: 10px;
-    }
+Product Rank =
+RANKX(ALL(Products[product_name]), [Total Revenue], , DESC, Dense)
 
-    .header img {
-      width: 100px;
-      height: 100px;
-    }
+Spending Category =
+SWITCH(
+    TRUE(),
+    [Total Revenue] &gt; 3000, "High Spender",
+    [Total Revenue] &gt;= 1000, "Medium Spender",
+    "Low Spender"
+)</code></pre> 
 
-    .project-details {
-      padding-right: 10px;
-    }
+        <h3>SQL → DAX Mapping</h3> 
+        <table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; width: 100%;"> 
+            <tr> 
+                <th>Business Logic</th> 
+                <th>SQL</th> 
+                <th>Power BI / DAX</th> 
+            </tr> 
+            <tr> 
+                <td>Running Revenue</td> 
+                <td><code>SUM() OVER()</code></td> 
+                <td><code>Running Revenue</code></td> 
+            </tr> 
+            <tr> 
+                <td>Month-over-Month</td> 
+                <td><code>LAG()</code></td> 
+                <td><code>Previous Month Revenue</code>, <code>MoM Growth %</code></td> 
+            </tr> 
+            <tr> 
+                <td>Product Ranking</td> 
+                <td><code>DENSE_RANK()</code></td> 
+                <td><code>Product Rank</code></td> 
+            </tr> 
+            <tr> 
+                <td>Customer Segmentation</td> 
+                <td><code>CASE</code> + <code>RANK()</code></td> 
+                <td><code>Spending Category</code></td> 
+            </tr> 
+            <tr> 
+                <td>Top Customer per State</td> 
+                <td><code>ROW_NUMBER()</code> + <code>PARTITION BY</code></td> 
+                <td>Table visual, ranked by state</td> 
+            </tr> 
+        </table> 
 
-    .project-details h2 {
-      font-size: 1.2em;
-    }
+        <!-- Section: Key Decisions --> 
+        <h3>🎨 Key Decisions</h3> 
+        <p><strong>Why raw tables instead of SQL views for the data model?</strong><br> 
+        The four SQL views are pre-aggregated, which freezes their grain and blocks re-slicing by filters like date range or product type. Row-level detail (needed for future drillthrough) only exists in the raw <code>Sales</code> table. The views were kept in the SQL script and used to cross-check DAX measure totals as a validation step, rather than feeding the model directly.</p> 
+        <p><strong>Design system:</strong> consistent dark-mode theme, custom "Vintage Violet" palette (<code>#9F5F9F</code>, <code>#C8A2C8</code>, <code>#8A496B</code>, <code>#DABFD4</code>, <code>#7C5C6F</code>), applied via a shared Power BI theme file across all pages.</p> 
 
-    .project-details p {
-      font-size: 1em;
-    }
+        <!-- Section: Dashboard Pages --> 
+        <h3>📈 Dashboard Pages</h3> 
 
-    .project-details img {
-      margin-bottom: 10px;
-    }
+        <h4 style="color: rgb(196,181,253); margin: 14px 0 6px 0;">1️⃣ Executive Summary</h4> 
+        <p>High-level business health at a glance.</p> 
+        <ul> 
+            <li>KPI row: Total Revenue, Total Orders, Average Order Value, Active Customers, MoM Growth %</li> 
+            <li>Revenue & Running Revenue trend (dual-axis line chart)</li> 
+            <li>Revenue by Product Type</li> 
+            <li>Revenue by State</li> 
+            <li>MonthYear slicer</li> 
+        </ul> 
 
-    .scroll-up-arrow {
-      bottom: 10px;
-      right: 10px;
-      width: 30px;
-      height: 30px;
-      line-height: 30px;
-      font-size: 16px;
-    }
-  }
-</style>
-</head>
-<body>
-  <div class="header">
-    <a href="index.html"><img src="ss/r2.png" alt="Home" id="whale"></a>
-  </div>
-  <div class="frame">
-    <div class="project-details">
-        <h2>Sales Analysis Dashboard</h2>
-        <p><strong>Objective:</strong> Analyze sales data to uncover product performance trends, customer behavior patterns, and insights into demographic distributions over time.</p>
+        <h4 style="color: rgb(196,181,253); margin: 14px 0 6px 0;">2️⃣ Customer Analytics</h4> 
+        <p>Who buys, and who matters most.</p> 
+        <ul> 
+            <li>Top 10 Customers by Revenue</li> 
+            <li>Gender Distribution</li> 
+            <li>Customer Spending Segments (High / Medium / Low)</li> 
+            <li>Customer Age Distribution</li> 
+            <li>Top Customer per State (table — direct output of the SQL <code>ROW_NUMBER()</code> + <code>PARTITION BY</code> query)</li> 
+        </ul> 
 
-        <p><strong>Key Components:</strong></p>
-        <ol>
-            <li><strong>Product Sales:</strong> Analyze the total sales of various products to determine the top-performing items.
-              <br> <img src="ss/1sql.png" alt="Product Sales" class="centered-image">
-              <br>Top-performing products include Denim ($18,128) and Bomber ($14,800).</li>
+        <h4 style="color: rgb(196,181,253); margin: 14px 0 6px 0;">3️⃣ Product Analytics</h4> 
+        <p>What's driving performance on the product side.</p> 
+        <ul> 
+            <li>Top 10 Products by Revenue</li> 
+            <li>Product Performance Ranking (table with <code>Product Rank</code>)</li> 
+            <li>Quantity vs Revenue by Product</li> 
+            <li>Revenue by Product Category</li> 
+        </ul> 
 
-            <li><strong>Monthly Sales Trend:</strong> Visualize the sales patterns over time to identify peak months and trends.
-              <br> <img src="ss/4sql.png" alt="Monthly Sales Trend" class="centered-image">
-              <br>Sales peaked in March 2021 with $58,844, and declined slightly in October 2021 with $30,691.</li>
+        <h4 style="color: rgb(196,181,253); margin: 14px 0 6px 0;">4️⃣ Customer Drillthrough — Coming soon</h4> 
+        <p>A planned drillthrough page for per-customer order history and purchase detail.</p> 
 
-            <li><strong>Customer Last Order Date:</strong> Track customer activity based on their last order date to gauge loyalty and retention.
-              <br> <img src="ss/6sql.png" alt="Customer Last Order Date" class="centered-image">
-              <br>Most recent orders were placed by customers like Marabel Swinton on 2021-09-28 and Gabbie Aldwinde on 2021-10-18.</li>
+        <!-- Section: Project Structure --> 
+        <h3>📁 Project Structure</h3> 
+        <pre style="background: rgba(145,129,204,0.1); border: 1px solid rgb(145,129,204); border-radius: 8px; padding: 14px; overflow-x: auto; white-space: pre-wrap;"><code>E-Commerce-Analytics-Project
+│
+├── SQL
+│   └── ecommerce_analysis.sql
+│
+├── PowerBI
+│   └── E-Commerce_Analytics_Dashboard.pbix
+│
+├── images
+│   ├── executive-summary.png
+│   ├── customer-analytics.png
+│   └── product-analytics.png
+│
+└── README.md</code></pre> 
 
-            <li><strong>Customer Lifetime Value (CLV):</strong> Calculate the lifetime value of each customer to identify high-spending clients.
-              <br> <img src="ss/7sql.png" alt="Customer Lifetime Value" class="centered-image">
-              <br>High-spending customers include Wren Helgass ($7,632) and Melissa Partkya ($5,435).</li>
+        <!-- Section: Next Steps --> 
+        <h3>🚀 Planned Next Steps</h3> 
+        <ul> 
+            <li>Customer drillthrough page (order history, purchase detail)</li> 
+            <li>Bookmark-based page navigation</li> 
+            <li>RFM customer segmentation</li> 
+            <li>Field parameters / metric toggle</li> 
+            <li>Power BI Service publishing</li> 
+        </ul> 
 
-            <li><strong>Customer Payments:</strong> Analyze the total payments made by customers to better understand revenue contributions.
-              <br> <img src="ss/5sql.png" alt="Customer Payments" class="centered-image">
-              <br>Top payments were made by Wren Helgass ($205,614) and Mallory Castellani ($163,068).</li>
+        <!-- Section: Skills Demonstrated --> 
+        <h3>💼 Skills Demonstrated</h3> 
+        <pre style="background: rgba(145,129,204,0.1); border: 1px solid rgb(145,129,204); border-radius: 8px; padding: 14px; overflow-x: auto; white-space: pre-wrap;"><code>SQL · Joins · CTEs · Window Functions · SQL Views
+Power BI · Data Modeling · Star Schema · DAX · Time Intelligence
+Data Visualization · Business Analysis · Dashboard Design</code></pre> 
 
-            <li><strong>Customer Gender Distribution:</strong> Analyze the breakdown of customers by gender to understand demographic trends.
-              <br> <img src="ss/2sql.png"  alt="Customer Gender Distribution" class="centered-image">
-              <br>Customer breakdown by gender: Female (115), Male (143), and Non-binary (131).</li>
-
-            <li><strong>Customer Average Age:</strong> Calculate the average age of customers to better understand the target audience.
-              <br> <img src="ss/3sql.png" alt="Customer Average Age" class="centered-image">
-              <br>The average customer age is 50.80 years.</li>
-
-            <li><strong>Top Spenders and Spending Rank:</strong> Rank customers based on total spending to identify high-value customers.
-              <br> <img src="ss/8sql.png" alt="Top Spenders and Rank" class="centered-image">
-              <br>Wren Helgass ranks #1 with the highest spending of $7,632.</li>
-        </ol>
-
-        <p><strong>Results:</strong> The Analysis provides valuable insights into product performance, monthly sales trends, customer demographics, and spending patterns, helping businesses make data-driven decisions for inventory and marketing strategies.</p>
-        
-        <p><strong>Impact:</strong> This analysis highlights key customer segments and product trends, offering actionable insights to optimize inventory, boost marketing efforts, and improve overall sales performance.</p>
-
-        <p><strong>Future Enhancements:</strong> Incorporate advanced analytics features, such as predictive models, to forecast future sales trends and customer behavior based on the current data.</p>
-
-    </div>
-  </div>
-
-  <script>
-    const whaleImage = document.getElementById('whale');
-    let isEnlarged = false;
-
-    whaleImage.addEventListener('click', function() {
-      isEnlarged = !isEnlarged;
-      if (isEnlarged) {
-        whaleImage.classList.add('enlarged');
-      } else {
-        whaleImage.classList.remove('enlarged');
-      }
-    });
-    
-    function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
-
-  <div class="scroll-up-arrow" onclick="scrollToTop()">^</div>
-
-</body>
+        <p><strong>Conclusion:</strong> An end-to-end e-commerce analytics project demonstrating the full workflow from relational SQL analysis through Power BI data modeling, DAX, and interactive dashboard design across customer, product, and executive-level views.</p> 
+    </div> 
+  </div> 
+ 
+  <script> 
+    const whaleImage = document.getElementById('whale'); 
+    let isEnlarged = false; 
+ 
+    whaleImage.addEventListener('click', function() { 
+      isEnlarged = !isEnlarged; 
+      if (isEnlarged) { 
+        whaleImage.classList.add('enlarged'); 
+      } else { 
+        whaleImage.classList.remove('enlarged'); 
+      } 
+    }); 
+ 
+    function scrollToTop() { 
+        window.scrollTo({ top: 0, behavior: 'smooth' }); 
+    } 
+  </script> 
+ 
+  <!-- Scroll up arrow icon --> 
+  <div class="scroll-up-arrow" onclick="scrollToTop()">^</div> 
+ 
+</body> 
 </html>
